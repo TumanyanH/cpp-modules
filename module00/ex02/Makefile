@@ -1,8 +1,7 @@
-NAME = crappy
+NAME = test
 
-FILENAME = main.cpp \
-			Phonebook.cpp \
-			Contact.cpp
+FILENAME = tests.cpp \
+			Account.cpp
 OBJS = $(FILENAME:.cpp=.o)
 
 CC = c++
