@@ -6,7 +6,7 @@ FILENAME = main.cpp \
 OBJS = $(FILENAME:.cpp=.o)
 
 CC = c++
-CC_FLAGS = -Wall -Wextra -Werror
+CC_FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 

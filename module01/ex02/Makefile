@@ -1,11 +1,11 @@
-NAME = test
-
-FILENAME = tests.cpp \
-			Account.cpp
-OBJS = $(FILENAME:.cpp=.o)
-
 CC = c++
 CC_FLAGS = -Wall -Wextra -Werror -std=c++98
+
+NAME = brain
+
+FILENAME = main.cpp
+			
+OBJS = $(FILENAME:.cpp=.o)
 
 all : $(NAME)
 
@@ -19,4 +19,3 @@ fclean : clean
 	rm $(NAME)
 
 re : fclean all
-

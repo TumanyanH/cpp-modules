@@ -1,9 +1,6 @@
 #include "./Phonebook.hpp"
 
-Phonebook::Phonebook( void ) : _curr_size(0)
-{
-    this->_contacts = new Contact[8];
-}
+Phonebook::Phonebook( void ) : _curr_size(0) {}
 
 void Phonebook::add_contact(t_details details)
 {
@@ -39,7 +36,4 @@ Contact *Phonebook::get_contacts()
     return (this->_contacts);
 }
 
-Phonebook::~Phonebook()
-{
-    delete[] this->_contacts;
-}
+Phonebook::~Phonebook() {}

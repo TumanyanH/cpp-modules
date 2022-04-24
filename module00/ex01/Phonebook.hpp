@@ -23,9 +23,8 @@ public :
     void set_size(int size);
 
 private :
-    Contact *_contacts;
+    Contact _contacts[8];
     int _curr_size;
-
 };
 
 #endif
