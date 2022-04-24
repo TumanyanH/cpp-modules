@@ -68,7 +68,7 @@ int main( void )
             std::cin >> index;
             std::cin.ignore(1000, '\n');
             std::cin.clear();
-            if (index > 0 && index <= pb.get_size())
+            if (index > 0 && index <= 8)
                 display_contact(pb.get_contacts()[index - 1]);
             else 
                 std::cout << "this makes no sense" << std::endl;
