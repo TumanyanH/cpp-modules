@@ -1,22 +1,15 @@
-#include <iostream>
-#include <string>
-#include <fstream>
+#include "Winner.hpp"
 
 int main(int argc, char **argv)
 {
-    std::ofstream file;
-    std::string outfile;
-    std::string s1;
-    std::string s2;
-
     if (argc < 4)
     {
         std::cout << "arguments are incorrect" << std::endl;
         return 1;
     }
-    file.open(argv[1]);
-    
-    outfile = std::string(argv[1]).append(".replace");
-
+    if (std::string(argv[1]).empty() || std::string(argv[2]).empty() || std::string(argv[3]).empty())
+        std::cout << "error: incomplete usage." << std::endl;
+    Winner winner(argv[2], argv[3], argv[1]);
+    winner.replace_line();
     return 0;
 }
