@@ -59,6 +59,7 @@ int main( void )
 
         std::cout << "Enter command : ";
         getline(std::cin, input);
+        input.
         if (!input.compare("ADD"))
             input_contact(&pb);
         else if (!input.compare("SEARCH"))

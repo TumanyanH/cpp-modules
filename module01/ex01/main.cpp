@@ -2,7 +2,7 @@
 
 int main()
 {
-    int N = 8;
+    int N = 2;
     int i = 0;
 
     Zombie *zombies = zombieHorde(N, "Steve");

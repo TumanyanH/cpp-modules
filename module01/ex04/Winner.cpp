@@ -19,25 +19,40 @@ void Winner::replace_line( void )
         while (getline(Winner::_inf, line))
             Winner::_content.append(line + "\n");
     }
-    std::cout << Winner::_content << std::endl;
+    else
+        std::cout << "file corrupted" << std::endl;
     this->replace();
 }
 
 void Winner::replace( void )
 {
-    std::string::size_type i = this->_content.find(this->_s1, 0);
+    std::string::size_type i = 0;
     std::string::size_type j = 0;
-    std::string final_line;
 
     while (i < this->_content.size())
     {
-        std::cout << j << " " << i << std::endl;
-        final_line.append(this->_content.substr(j, i));
-        final_line.append(this->_s2);
-        j += (i + this->_s1.size());
-        i = this->_content.find(this->_s1, j);
+        if (this->_content[i] != this->_s1[0])
+        {
+            this->_outf << this->_content[i];
+            ++i;
+        }
+        else
+        {
+            j = 0;
+            while (this->_content[i + j] == this->_s1[j])
+                ++j;
+            if (j == this->_s1.size())
+            {
+                this->_outf << this->_s2;
+                i += j;
+            }
+            else
+            {
+                this->_outf << this->_content[i];
+                ++i;
+            }
+        }
     }
-    std::cout << "-----------------------" << std::endl << final_line; 
 }
 
 Winner::~Winner ()
