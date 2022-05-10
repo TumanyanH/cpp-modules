@@ -1,10 +1,12 @@
 CC = c++
 CC_FLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = clapTrap
+NAME = fragTrap
 
 FILENAME = main.cpp \
-			ClapTrap.cpp
+			ClapTrap.cpp \
+			ScavTrap.cpp \
+			FragTrap.cpp
 			
 OBJS = $(FILENAME:.cpp=.o)
 
