@@ -9,7 +9,7 @@ class Bureaucrat
 {
 	public:
 		// Constructors
-		Bureaucrat(std::string name);
+		Bureaucrat(std::string name, int grade);
 		Bureaucrat(const Bureaucrat &copy);
 		
 		// Destructor

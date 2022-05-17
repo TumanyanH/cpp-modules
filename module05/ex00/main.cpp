@@ -2,7 +2,7 @@
 
 int main()
 {
-    Bureaucrat bureaucrat = Bureaucrat("Random guy");
+    Bureaucrat bureaucrat = Bureaucrat("Random guy", 50);
 
     bureaucrat.gradeUp();
     bureaucrat.gradeUp();

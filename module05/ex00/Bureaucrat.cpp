@@ -1,11 +1,15 @@
 #include "Bureaucrat.hpp"
 
 // Constructors
-Bureaucrat::Bureaucrat(std::string name)
+Bureaucrat::Bureaucrat(std::string name, int grade)
 {
 	std::cout << "Default Constructor called of Bureaucrat" << std::endl;
 	this->_name = name;
-	this->_grade = 150;
+	if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	this->_grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy)
@@ -30,26 +34,18 @@ Bureaucrat & Bureaucrat::operator=(const Bureaucrat &assign)
 
 void Bureaucrat::gradeUp()
 {
-	try {
-		if (this->_grade >= 1 && this->_grade <= 150)
-			this->_grade--;
-		else
-			throw Bureaucrat::GradeTooHighException();
-	} catch (const char * e) {
-		std::cout << e << std::endl;
-	}
+	if (this->_grade >= 1 && this->_grade <= 150)
+		this->_grade--;
+	else
+		throw Bureaucrat::GradeTooHighException();
 }
 
 void Bureaucrat::gradeDown()
 {
-	try {
-		if (this->_grade < 150) 
-			this->_grade++;
-		else
-			throw Bureaucrat::GradeTooLowException();
-	} catch (const char * e) {
-		std::cout << e << std::endl;
-	}
+	if (this->_grade < 150) 
+		this->_grade++;
+	else
+		throw Bureaucrat::GradeTooLowException();
 }
 
 int	Bureaucrat::getGrade() const
