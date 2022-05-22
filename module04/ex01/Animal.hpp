@@ -9,7 +9,6 @@ class Animal
 	public:
 		// Constructors
 		Animal(const Animal &copy);
-		// Destructor
 		// ~Animal();
 		virtual ~Animal();
 		
