@@ -1,11 +1,12 @@
 #include "Convert.hpp"
 
-int main (int ac, char **argv)
+int main(int ac, char **av)
 {
-    if (ac == 2)
+    if (ac != 2)
     {
-        
-        return 0;
+        std::cerr << "Wrong params" << std::endl;
+        return 1;
     }
-    std::cerr << "chkpav" << std::endl;
+    Convert(std::string(av[1]));
+    return 0;
 }

@@ -1,10 +1,12 @@
 CC = c++
 CC_FLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = convert
+NAME = serialize
 
 FILENAME = main.cpp \
-			Convert.cpp
+			A.cpp \
+			B.cpp \
+			C.cpp \
 			
 OBJS = $(FILENAME:.cpp=.o)
 
