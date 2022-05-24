@@ -1,12 +1,9 @@
 CC = c++
 CC_FLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = ident
+NAME = whatever
 
-FILENAME = main.cpp \
-			A.cpp \
-			B.cpp \
-			C.cpp \
+FILENAME = main.cpp
 			
 OBJS = $(FILENAME:.cpp=.o)
 
