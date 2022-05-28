@@ -7,6 +7,7 @@
 Base * generate(void)
 {
     int a = rand() % 3;
+    std::cout << "random number is: " << a << std::endl;
     Base *ab;
     switch (a)
     {
@@ -27,18 +28,18 @@ Base * generate(void)
 
 void identify(Base* p)
 {
-    Base *checking;
-
-    try {
-        checking = reinterpret_cast<A*>(p);
-        std::cout << "this" << std::endl;
-    } catch(...)
-    {
-        std::cout << "err" << std::endl;
-    }
+    if (dynamic_cast<A*>(p))
+        std::cout << "A" << std::endl;
+    else if (dynamic_cast<B*>(p))
+        std::cout << "B" << std::endl;
+    else if (dynamic_cast<C*>(p))
+        std::cout << "C" << std::endl;
+    else
+        std::cout << "unknown" << std::endl;
 }
 
-void identify(Base& p);
+void identify(Base& p)
+{}
 
 int main()
 {
@@ -47,6 +48,7 @@ int main()
     for (int a = 0; a < 10; a++)
     {
         thing = generate();
+        std::cout << "Current type is: ";
         identify(thing);
         delete thing;
     }
