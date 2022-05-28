@@ -25,7 +25,10 @@ int main()
 
     data.a = 1;
     data.b = 2;
+    std::cout << data.a << " || " << data.b << std::endl;
     newone = serialize(&data);
     data1 = deserialize(newone);
+    std::cout << data1->a << " || " << data1->b << std::endl;
     std::cout << &data << " || " << data1 << std::endl;
+    
 }

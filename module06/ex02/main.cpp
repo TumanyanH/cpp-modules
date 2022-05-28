@@ -7,7 +7,7 @@
 Base * generate(void)
 {
     int a = rand() % 3;
-    std::cout << "random number is: " << a << std::endl;
+    std::cout << a << std::endl;
     Base *ab;
     switch (a)
     {
@@ -28,18 +28,40 @@ Base * generate(void)
 
 void identify(Base* p)
 {
-    if (dynamic_cast<A*>(p))
+    if (dynamic_cast<A *>(p))
         std::cout << "A" << std::endl;
-    else if (dynamic_cast<B*>(p))
+    else if (dynamic_cast<B *>(p))
         std::cout << "B" << std::endl;
-    else if (dynamic_cast<C*>(p))
+    else if (dynamic_cast<C *>(p))
         std::cout << "C" << std::endl;
     else
         std::cout << "unknown" << std::endl;
 }
 
 void identify(Base& p)
-{}
+{
+    Base a;
+
+    try {
+        a = dynamic_cast<A&>(p);
+        std::cout << "A" << std::endl;
+        return ;
+    } catch(...) {}
+
+    try {
+        a = dynamic_cast<B&>(p);
+        std::cout << "B" << std::endl;
+        return ;
+    } catch(...) {}
+    
+    try {
+        a = dynamic_cast<C&>(p);
+        std::cout << "C" << std::endl;
+        return ;
+    } catch(...) {}
+    std::cout << "unkknown" << std::endl;
+    return ;
+}
 
 int main()
 {
@@ -47,9 +69,12 @@ int main()
 
     for (int a = 0; a < 10; a++)
     {
+        std::cout << "---------------" << std::endl;
         thing = generate();
-        std::cout << "Current type is: ";
+        std::cout << "Type of class is using pointer method: ";
         identify(thing);
+        std::cout << "Type of class is using reference method: ";
+        identify(*thing);
         delete thing;
     }
 }
